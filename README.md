@@ -1,7 +1,7 @@
 # VRC-Menu-Translator
 A Unity Editor tool that lets you translate VRChat Expresison Menu and Menu Control names
 
-# How to Use
+## How to Use
 1. Make sure to have the VRCSDK installed before installation.
 2. Download "VRCMenuTranslator.cs" from above and place it anywhere inside your project assets.
 3. Open Cascadian -> VRCMenuTranslator from the top menu bar.
