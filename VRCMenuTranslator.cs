@@ -3,7 +3,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -81,7 +80,7 @@ namespace CasTools
             af = 19, // Afrikaans
         }
 
-        private int fromLanguageIndex = 0;
+        private int fromLanguageIndex = 1;
         private int toLanguageIndex = 0;
 
         private void OnValidate()
@@ -96,7 +95,8 @@ namespace CasTools
             // Get existing open window or if none, make a new one:
             VRCMenuTranslator window = (VRCMenuTranslator)GetWindow(typeof(VRCMenuTranslator));
             window.Show();
-            window.minSize = new Vector2(450, 650);
+            window.minSize = new Vector2(450, 400);
+            window.maxSize = new Vector2(450, 2000);
 
             totalNumberOfControls = 0;
             currentControlNumber = 0;
@@ -145,16 +145,12 @@ namespace CasTools
                 isTranslatingall = true;
                 GetNumberOfControls(expressionMenus);
 
-                currentAvatarDescriptor = currentAvatar.GetComponent<VRCAvatarDescriptor>();
-                if (currentAvatarDescriptor == null)
-                {
-                    Debug.LogError("No avatar descriptor found");
-                    return;
-                }
-
                 foreach (var menu in expressionMenus)
                 {
-                    Debug.Log("Menu: " + menu.name);
+                    var menuName = menu.name;
+                    menu.name = CapitalizeEveryWord(await Task.Run(() => TranslateTextGoogle(menuName)));
+                    AssetDatabase.RenameAsset(AssetDatabase.GetAssetPath(menu), menu.name);
+                    EditorUtility.SetDirty(menu);
                     foreach (var control in menu.controls)
                     {
                         currentControlNumber += 1;
@@ -163,6 +159,9 @@ namespace CasTools
                         Repaint();
                     }
                 }
+                
+                AssetDatabase.SaveAssets();
+
 
                 isTranslatingall = false;
                 return;
@@ -173,11 +172,25 @@ namespace CasTools
             foreach (var menu in expressionMenus)
             {
                 GUILayout.BeginVertical("Box");
-
+                GUILayout.BeginHorizontal("Box");
                 GUILayout.Label(menu.name);
+                GUILayout.FlexibleSpace();
+                if (GUILayout.Button("Translate", GUILayout.Height(30)))
+                {
+                    var menuName = menu.name;
+                    menu.name = CapitalizeEveryWord(await Task.Run(() => TranslateTextGoogle(menuName)));
+                    AssetDatabase.RenameAsset(AssetDatabase.GetAssetPath(menu), menu.name);
+                    EditorUtility.SetDirty(menu);
+                    AssetDatabase.SaveAssets();
+                    return;
+                }
+                GUILayout.EndHorizontal();
 
                 foreach (var control in menu.controls)
                 {
+                    GUILayout.BeginHorizontal();
+                    GUILayout.Space(30);
+
                     GUILayout.BeginHorizontal("Button");
                     GUILayout.Label(control.name);
                     GUILayout.FlexibleSpace();
@@ -187,6 +200,7 @@ namespace CasTools
                         return;
                     }
 
+                    GUILayout.EndHorizontal();
                     GUILayout.EndHorizontal();
                 }
 
