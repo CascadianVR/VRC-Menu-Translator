@@ -8,4 +8,4 @@ A Unity Editor tool that lets you translate VRChat Expresison Menu and Menu Cont
 4. Drag in the model that you want to translate the menus for.
 5. You have two options for tanslatiing:
     - You can press "Translate All" and it will go through each menu and translate all of the names.
-    - Alternatively, you can press scroll through the menus and individually translate the name at your discretion.
+    - Alternatively, you can scroll through the menu items and individually translate the names at your discretion.
