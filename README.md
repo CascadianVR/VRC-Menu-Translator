@@ -13,3 +13,6 @@ A Unity Editor tool that lets you translate VRChat Expresison Menu and Menu Cont
 ## Example
 https://github.com/CascadianVR/VRC-Menu-Translator/assets/90723146/2981ddd1-d87b-42c2-a4ad-364f9f709ed9
 
+## Details
+- Google translate is used since it is a free option that's lightweight (pulled from web) and lets me not have to spend any money or large amount of development time getting something else to work. If there turns out to be an interest in this tool i'll look at improving the translation and other aspects of it to make it more reliable and accurate.
+- Everything is contained in a single script which makes it easy to install and use, which was the goal of the project.
