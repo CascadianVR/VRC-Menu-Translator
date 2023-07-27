@@ -4,7 +4,8 @@
 
 A Unity Editor tool that lets you translate VRChat expresison menu and menu Control names easy either one at at time or all at once.
 
-[![release version](https://img.shields.io/github/v/release/CascadianVR/VRC-Menu-Translator?style=for-the-badge)](https://github.com/CascadianVR/VRC-Menu-Translator/releases/latest)
+[![release version](https://img.shields.io/github/v/release/CascadianVR/VRC-Menu-Translator)](https://github.com/CascadianVR/VRC-Menu-Translator/releases/latest)
+[![Github All Releases](https://img.shields.io/github/downloads/CascadianVR/VRC-Menu-Translator/total.svg)](https://github.com/CascadianVR/VRC-Menu-Translator/releases/latest)
 <br>
 [![discord](https://discordapp.com/api/guilds/522269252854480896/widget.png?style=shield)](https://discord.gg/q3g3fmR)
 
