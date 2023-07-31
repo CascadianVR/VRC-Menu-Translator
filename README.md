@@ -2,7 +2,7 @@
 
 # VRC-Menu-Translator
 
-A Unity Editor tool that lets you translate VRChat expresison menu and menu Control names easy either one at at time or all at once.
+A Unity Editor tool that lets you translate VRChat expression menu and menu Control names easy either one at at time or all at once.
 
 [![release version](https://img.shields.io/github/v/release/CascadianVR/VRC-Menu-Translator)](https://github.com/CascadianVR/VRC-Menu-Translator/releases/latest)
 [![Github All Releases](https://img.shields.io/github/downloads/CascadianVR/VRC-Menu-Translator/total.svg)](https://github.com/CascadianVR/VRC-Menu-Translator/releases/latest)
